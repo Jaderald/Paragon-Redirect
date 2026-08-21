@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Paragon — Redirecting…</title>
+    <meta name="robots" content="noindex" />
+    <style>
+        body {
+            background: #101018;
+            color: #ffffff;
+            font-family: system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        a { color: #9bd1ff; }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Redirecting back to Paragon…</p>
+        <p>If nothing happens, <a id="fallback-link" href="#">click here</a>.</p>
+    </div>
+
+    <script>
+        // Bungie appends ?code=...&state=... to this page's URL. Forward
+        // that query string straight through to the paragon:// custom
+        // protocol handler, which Windows routes to the desktop app.
+        var target = "paragon://callback" + window.location.search;
+        document.getElementById("fallback-link").href = target;
+        window.location.href = target;
+    </script>
+</body>
+</html>
